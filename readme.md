@@ -7,12 +7,12 @@ Reads api keys and other secrets by including them from a file named secrets.php
 
 secrets.php:
 
-secrets['testEmail'] = 'testAddressToAdd@mailProvider.com';
-secrets['accountEmailAddress'] = 'accountHolderEmailAddress@mailProvider.com';
-secrets['convertkitURL'] = 'https://api.convertkit.com/v3/';
-secrets['convertkitSecret'] = 'your-convertkit-api-secret-here';
-secrets['convertKitForm'] = 'Form number to subscribe to (#####)';
-secrets['mailgunSecret'] = 'your-mailgun-api-secret-here';
+secrets['testEmail'] = 'testAddressToAdd@mailProvider.com';  
+secrets['accountEmailAddress'] = 'accountHolderEmailAddress@mailProvider.com';  
+secrets['convertkitURL'] = 'https://api.convertkit.com/v3/';  
+secrets['convertkitSecret'] = 'your-convertkit-api-secret-here';  
+secrets['convertKitForm'] = 'Form number to subscribe to (#####)';  
+secrets['mailgunSecret'] = 'your-mailgun-api-secret-here';  
 
 
 # curlConvert.php
