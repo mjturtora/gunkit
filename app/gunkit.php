@@ -3,7 +3,7 @@
 // runs with:
 // docker container run --rm -v %cd%:/app/ php:8.1-cli php /app/gunkit.php
 // Testing:
-// Toggle commented lines in getMailgunEmails for past day or use fixed Unix Epoch for testing.
+// Toggle commented lines in getMailgunEmails for past day or use Fixed Unix Epoch for testing.
 // Toggle comment $emails[]= $secrets['testEmail'] to test convertkit w/o mailgun
 
 ////////////////////////////////////////////////////////
@@ -12,7 +12,7 @@
 include 'secrets.php';
 
 
-// Get new emails from Mailgun. Toggle comments to test Convertkit
+// Get new emails from Mailgun. Toggle comments to test Convertkit only
 $emails = getMailgunEmails($secrets['mailgunSecret'], $secrets['accountEmailAddress']);
 //$emails[]= $secrets['testEmail'];
 
@@ -29,20 +29,6 @@ foreach($emails as $email){
 ///////////////////////////////////////////////////////
 // functions:
 
-function readSecretsFile(){
-	$myFile = '/app/secrets.txt';
-	$array = array();
-	foreach (file($myFile, FILE_IGNORE_NEW_LINES) as $line)
-	{
-		list($key, $value) = explode(' ', $line, 2); // + array(NULL, NULL);
-
-		if ($value !== NULL)
-		{
-			$array[$key] = $value;
-		}
-	}
-	return $array;
-}
 
 // Use Mailgun api key to get email addresses added to account during past 24 hours
 function getMailgunEmails($mailgunSecret, $accountEmailAddress){
@@ -143,3 +129,18 @@ function curlExec($curlConfig){
 	return $responseBody;
 }
 
+// deprecated function once secrets handling methond changed to include secrets.php file
+function readSecretsFile(){
+	$myFile = '/app/secrets.txt';
+	$array = array();
+	foreach (file($myFile, FILE_IGNORE_NEW_LINES) as $line)
+	{
+		list($key, $value) = explode(' ', $line, 2); // + array(NULL, NULL);
+
+		if ($value !== NULL)
+		{
+			$array[$key] = $value;
+		}
+	}
+	return $array;
+}
